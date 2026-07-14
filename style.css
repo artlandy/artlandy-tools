@@ -1,1 +1,398 @@
+/* ===========================
+   Artlandy Resin Tools
+   Version 1.0
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:"Noto Sans JP",sans-serif;
+
+    background:#F5F5F5;
+
+    color:#333;
+
+}
+
+.app{
+
+    max-width:430px;
+
+    margin:auto;
+
+    background:white;
+
+    min-height:100vh;
+
+    box-shadow:0 0 25px rgba(0,0,0,.08);
+
+}
+
+/* ---------------- Hero ---------------- */
+
+.hero{
+
+    position:relative;
+
+    height:280px;
+
+    overflow:hidden;
+
+}
+
+.hero img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.45)
+    );
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.hero-overlay h1{
+
+    font-size:2rem;
+
+    letter-spacing:1px;
+
+}
+
+.hero-overlay h2{
+
+    font-size:1.4rem;
+
+    font-weight:300;
+
+    margin-top:5px;
+
+}
+
+.hero-overlay p{
+
+    margin-top:18px;
+
+    font-size:.95rem;
+
+    opacity:.95;
+
+    font-style:italic;
+
+}
+
+/* ---------------- Welcome ---------------- */
+
+.welcome{
+
+    padding:28px 24px;
+
+    text-align:center;
+
+}
+
+.wave-line{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    color:#23AFC8;
+
+    margin-bottom:18px;
+
+}
+
+.wave-line span{
+
+    width:70px;
+
+    height:2px;
+
+    background:#DDD;
+
+}
+
+.welcome h3{
+
+    font-size:1.5rem;
+
+    color:#8F8A8A;
+
+    margin-bottom:12px;
+
+}
+
+.welcome p{
+
+    line-height:1.9;
+
+    color:#555;
+
+}
+
+/* ---------------- Menu ---------------- */
+
+.menu{
+
+    padding:0 18px;
+
+}
+
+.menu-button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    padding:18px 20px;
+
+    margin-bottom:16px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.menu-button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.menu-button .left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.menu-button>i:first-child,
+.left i{
+
+    color:#23AFC8;
+
+    font-size:1.35rem;
+
+    width:28px;
+
+}
+
+.timer-card i:first-child{
+
+    color:#0C92B2;
+
+}
+
+.menu-button span{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.menu-button small{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#999;
+
+    font-weight:400;
+
+}
+
+.menu-button .fa-chevron-right{
+
+    color:#BBB;
+
+}
+
+.disabled{
+
+    opacity:.65;
+
+}
+
+/* ---------------- Notice ---------------- */
+
+.notice{
+
+    padding:8px 18px 28px;
+
+}
+
+.notice-button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#F7F7F7;
+
+    padding:16px 18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#666;
+
+    cursor:pointer;
+
+}
+
+.notice-button div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+/* ---------------- Footer ---------------- */
+
+footer{
+
+    text-align:center;
+
+    padding:15px 20px 95px;
+
+}
+
+footer p{
+
+    color:#888;
+
+    font-size:.9rem;
+
+}
+
+.footer-wave{
+
+    margin-top:12px;
+
+    font-size:1.4rem;
+
+}
+
+/* ---------------- Bottom Nav ---------------- */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:430px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:10px 0;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+}
+
+.bottom-nav button{
+
+    border:none;
+
+    background:none;
+
+    color:#999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:5px;
+
+    font-size:.75rem;
+
+    cursor:pointer;
+
+}
+
+.bottom-nav i{
+
+    font-size:1.2rem;
+
+}
+
+.bottom-nav .active{
+
+    color:#23AFC8;
+
+}
