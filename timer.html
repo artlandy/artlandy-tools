@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レジンタイマー | Artlandy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="page-header">
+
+    <a href="index.html" class="back-button">
+        ← ホームへ戻る
+    </a>
+
+    <h1>レジンタイマー</h1>
+
+</header>
+
+<main class="calculator">
+
+<section class="tool-card">
+
+<h2>時間を選択</h2>
+
+<select id="timer-select">
+
+<option value="30">30分</option>
+<option value="60">60分</option>
+<option value="80">80分</option>
+
+</select>
+
+</section>
+
+<section class="result-card">
+
+<div id="timer-display">
+
+30:00
+
+</div>
+
+</section>
+
+<button class="calculate-button" onclick="startTimer()">
+スタート
+</button>
+
+<button class="calculate-button" onclick="pauseTimer()">
+一時停止
+</button>
+
+<button class="calculate-button" onclick="resetTimer()">
+リセット
+</button>
+
+<div id="timer-finish" class="timer-finish">
+
+    <div class="timer-finish-card">
+
+        <div class="finish-logo">
+
+    <img src="images/logo.png" alt="Artlandy Logo">
+
+</div>
+
+        <h2>レジンの時間です！</h2>
+
+        <button class="finish-button" onclick="closeFinish()">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+</main>
+
+<script src="timer.js"></script>
+
+</body>
+</html>
