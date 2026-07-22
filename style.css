@@ -120,6 +120,18 @@ body{
 
 }
 
+.top-logo{
+
+    width:120px;
+
+    height:auto;
+
+    margin:10px auto 20px;
+
+    display:block;
+
+}
+
 .wave-line{
 
     display:flex;
@@ -186,6 +198,8 @@ body{
 
     margin-bottom:16px;
 
+    min-height:72px;
+
     display:flex;
 
     justify-content:space-between;
@@ -200,20 +214,21 @@ body{
 
 }
 
+
+a.menu-button {
+    text-decoration: none;
+    color: inherit;
+}
+
 .menu-button:hover{
 
     transform:translateY(-2px);
 
 }
-
 .menu-button .left{
-
     display:flex;
-
     align-items:center;
-
     gap:16px;
-
 }
 
 .menu-button>i:first-child,
@@ -396,3 +411,340 @@ footer p{
     color:#23AFC8;
 
 }
+.hero img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+   /* ---------------- Footer ---------------- */
+
+footer {
+    text-align: center;
+    padding: 30px 20px 100px;
+}
+
+footer p {
+    color: #8F8A8A;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* ---------------- Top Logo ---------------- */
+
+.top-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+/* ---------------- Bottom Nav ---------------- */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -5px 20px rgba(0,0,0,.08);
+}
+
+.bottom-nav button {
+    border: none;
+    background: none;
+    color: #999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: .75rem;
+    cursor: pointer;
+}
+
+.bottom-nav i {
+    font-size: 1.2rem;
+}
+
+.bottom-nav .active {
+    color: #23AFC8;
+}
+
+/* ---------------- Calculator Page ---------------- */
+
+.page-header {
+    padding: 30px 20px 10px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 1.4rem;
+    color: #444;
+}
+
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #23AFC8;
+    font-size: .9rem;
+    margin-bottom: 15px;
+}
+
+
+.calculator {
+    padding: 20px;
+}
+
+
+.tool-card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+
+
+.tool-card h2 {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+
+.tool-card select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+
+.calculate-button {
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    background: #23AFC8;
+    color: white;
+    padding: 18px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.result-card {
+    margin-top: 25px;
+    background: #f7f7f7;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+}
+
+
+.result-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #23AFC8;
+}
+
+.input-unit {
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+
+.input-unit input {
+
+    flex:1;
+
+}
+
+
+.input-unit span {
+
+    color:#666;
+    font-size:1rem;
+
+}
+
+.note-text {
+
+    margin-top:20px;
+
+    font-size:0.8rem;
+
+    color:#888;
+
+    line-height:1.6;
+
+}
+#total-resin::placeholder {
+    color: #ccc;
+}
+
+.timer-finish{
+
+    display:none;
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.timer-finish-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    width:80%;
+    max-width:320px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+.finish-wave{
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+.timer-finish-card h2{
+
+    color:#2f6f91;
+
+    margin-bottom:25px;
+
+}
+
+.timer-finish-card button{
+
+    background:#2f6f91;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 30px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+/* タイマー終了画面 */
+
+.timer-finish{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.timer-finish-card{
+
+    background:#ffffff;
+
+    width:85%;
+    max-width:340px;
+
+    border-radius:22px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+
+}
+
+.finish-wave{
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+.timer-finish-card h2{
+
+    margin-bottom:30px;
+
+    color:#4d6f7d;
+
+}
+
+.finish-button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#7d9ca8;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+.finish-logo img{
+
+    width:90px;
+
+    margin-bottom:20px;
+
+}
+
+
