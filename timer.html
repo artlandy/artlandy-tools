@@ -45,17 +45,19 @@
 
 </section>
 
-<button class="calculate-button" onclick="startTimer()">
-スタート
+<button id="startBtn" class="btn start">
+    ▶ スタート
 </button>
 
-<button class="calculate-button" onclick="pauseTimer()">
-一時停止
-</button>
+<div class="button-row">
+    <button id="pauseBtn" class="btn pause">
+        ⏸ 一時停止
+    </button>
 
-<button class="calculate-button" onclick="resetTimer()">
-リセット
-</button>
+    <button id="resetBtn" class="btn reset">
+        🔄 リセット
+    </button>
+</div>
 
 <div id="timer-finish" class="timer-finish">
 
