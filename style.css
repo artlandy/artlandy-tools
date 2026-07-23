@@ -747,4 +747,12 @@ footer p {
 
 }
 
+.button-row{
+    display:flex;
+    gap:12px;
+    margin-top:12px;
+}
 
+.button-row .btn{
+    flex:1;
+}
