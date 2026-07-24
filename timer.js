@@ -67,6 +67,10 @@ document.getElementById("timer-select").addEventListener("change", function () {
 
 updateDisplay();
 
+document.getElementById("startBtn").addEventListener("click", startTimer);
+document.getElementById("pauseBtn").addEventListener("click", pauseTimer);
+document.getElementById("resetBtn").addEventListener("click", resetTimer);
+
 function closeFinish(){
 
     document.getElementById("timer-finish").style.display = "none";
