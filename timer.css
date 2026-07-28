@@ -1,0 +1,204 @@
+/* ===========================
+   Artlandy Resin Timer
+=========================== */
+
+.timer-page{
+    max-width:500px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+#timer-select{
+    width:100%;
+    padding:14px;
+    font-size:18px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    background:#fff;
+    outline:none;
+}
+
+.result-card{
+    margin-top:20px;
+    text-align:center;
+}
+
+#timer-display{
+    font-size:72px;
+    font-weight:700;
+    color:#35C3E8;
+    letter-spacing:2px;
+    padding:25px 0;
+}
+
+.timer-buttons{
+    margin-top:25px;
+}
+
+/* ---------- ボタン共通 ---------- */
+
+.btn{
+    width:100%;
+    border:none;
+    border-radius:16px;
+    padding:16px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn:active{
+    transform:scale(.97);
+}
+
+/* ---------- スタート ---------- */
+
+.start{
+    background:#35C3E8;
+    color:#fff;
+    margin-bottom:15px;
+}
+
+.start:hover{
+    background:#27b6dc;
+}
+
+/* ---------- 横並び ---------- */
+
+.button-row{
+    display:flex;
+    gap:15px;
+}
+
+.button-row .btn{
+    flex:1;
+}
+
+/* ---------- 一時停止 ---------- */
+
+.pause{
+    background:#ffffff;
+    color:#35C3E8;
+    border:2px solid #35C3E8;
+}
+
+/* ---------- リセット ---------- */
+
+.reset{
+    background:#ececec;
+    color:#666;
+}
+
+/* ---------- タイマー終了 ---------- */
+
+.timer-finish{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+}
+
+.timer-finish-card{
+
+    width:90%;
+    max-width:340px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    animation:popup .3s ease;
+}
+
+.finish-logo img{
+
+    width:90px;
+
+    margin-bottom:20px;
+}
+
+.timer-finish-card h2{
+
+    color:#444;
+
+    margin-bottom:25px;
+
+    font-size:24px;
+}
+
+.finish-button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#35C3E8;
+
+    color:#fff;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.finish-button:hover{
+
+    background:#27b6dc;
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+/* ---------- スマホ ---------- */
+
+@media(max-width:600px){
+
+    #timer-display{
+
+        font-size:56px;
+
+    }
+
+    .btn{
+
+        font-size:17px;
+        padding:15px;
+
+    }
+
+}

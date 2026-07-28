@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>レジン必要量計算 | Artlandy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>レジン必要量計算 | Artlandy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="page-header">
+
+    <a href="index.html" class="back-button">
+        ← ホームへ戻る
+    </a>
+
+    <h1>レジン必要量計算</h1>
+
+</header>
+
+<main class="calculator">
+
+
+    <section class="tool-card">
+
+        <h2>パネルサイズ</h2>
+
+        <select id="size">
+            <option>A5</option>
+            <option>A4</option>
+            <option>A3</option>
+            <option>A2</option>
+            <option>A1</option>
+            <option>正方形20cm</option>
+            <option>正方形30cm</option>
+            <option>円20cm</option>
+            <option>円30cm</option>
+            <option>オリジナルサイズ</option>
+        </select>
+
+
+    </section>
+
+
+    <section class="tool-card">
+
+        <h2>厚み</h2>
+
+        <select id="thickness">
+    <option selected>標準（約2mm）</option>
+    <option>厚め（約3mm）</option>
+    <option>立体仕上げ（約40mm）</option>
+</select>
+
+
+    </section>
+
+    <section class="tool-card" id="custom-size">
+
+    <h2>オリジナルサイズ入力</h2>
+
+    <input type="number" id="width" placeholder="横 cm">
+
+    <input type="number" id="height" placeholder="縦 cm">
+
+</section>
+
+
+   <button class="calculate-button" onclick="calculateResin()">
+
+    計算する
+
+</button>
+
+
+    <section class="result-card">
+
+        <h2>必要レジン量</h2>
+
+        <p id="result">
+    ー ml
+</p>
+
+    </section>
+
+
+</main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

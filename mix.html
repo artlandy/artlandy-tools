@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>レジン配合計算 | Artlandy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="page-header">
+
+    <a href="index.html" class="back-button">
+        ← ホームへ戻る
+    </a>
+
+    <h1>レジン配合計算</h1>
+
+</header>
+
+
+
+<main class="calculator">
+
+
+<section class="tool-card">
+
+    <h2>必要レジン量</h2>
+
+    <div class="input-unit">
+
+    <input type="number" id="total-resin" placeholder="80">
+
+    <span>ml</span>
+
+</div>
+
+</section>
+
+
+
+<section class="tool-card">
+
+    <h2>レジン種類</h2>
+
+    <select id="resin-type" onchange="updateRatio()">
+
+        <option>Art Resin</option>
+        <option>FLAWLESS RESIN</option>
+        <option>Just Resin</option>
+        <option>その他</option>
+
+    </select>
+
+</section>
+
+<section class="tool-card">
+
+    <h2>計算方式</h2>
+
+    <select id="method" onchange="updateRatio()">
+
+    <option>体積比</option>
+    <option>重量比</option>
+
+</select>
+
+</section>
+
+
+<section class="tool-card">
+
+    <h2>配合比</h2>
+
+    <select id="ratio">
+
+    <option>1:1</option>
+
+</select>
+
+</section>
+
+
+
+<button class="calculate-button" onclick="calculateMix()">
+
+    計算する
+
+</button>
+
+
+
+<section class="result-card">
+
+    <h2>配合結果</h2>
+
+    <p id="mix-result">
+    ー
+</p>
+
+</section>
+
+<p class="note-text">
+
+※計算結果は制作時の目安としてご利用ください。<br>
+レジンの密度は製造ロット等により若干変動する場合があります。
+
+</p>
+
+
+</main>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
