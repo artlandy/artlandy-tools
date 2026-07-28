@@ -756,3 +756,7 @@ footer p {
 .button-row .btn{
     flex:1;
 }
+
+.notice-button{
+    text-decoration:none;
+}
