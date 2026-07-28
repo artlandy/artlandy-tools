@@ -1,9 +1,17 @@
-const finishSound = new Audio("sound/timer.mp3");
+/* ===========================
+   Artlandy Resin Timer
+=========================== */
 
+const finishSound = new Audio("sound/timer.mp3");
 finishSound.volume = 0.4;
 
-let timer;
+let timer = null;
 let remainingSeconds = 30 * 60;
+let isRunning = false;
+
+// ===========================
+// 表示更新
+// ===========================
 
 function updateDisplay() {
 
@@ -15,11 +23,23 @@ function updateDisplay() {
 
 }
 
+// ===========================
+// スタート
+// ===========================
+
 function startTimer() {
 
-    clearInterval(timer);
+    if (isRunning) return;
 
-    timer = setInterval(function () {
+    isRunning = true;
+
+    const startBtn = document.getElementById("startBtn");
+    startBtn.textContent = "⏱ 計測中…";
+    startBtn.disabled = true;
+
+    document.getElementById("timer-select").disabled = true;
+
+    timer = setInterval(() => {
 
         if (remainingSeconds > 0) {
 
@@ -28,53 +48,106 @@ function startTimer() {
 
         } else {
 
-    clearInterval(timer);
+            clearInterval(timer);
 
-    finishSound.play();
+            isRunning = false;
 
-    document.getElementById("timer-finish").style.display = "flex";
+            document.getElementById("timer-select").disabled = false;
 
-}
+            finishSound.play();
+
+            document.getElementById("timer-finish").style.display = "flex";
+
+        }
 
     }, 1000);
 
 }
 
+// ===========================
+// 一時停止
+// ===========================
+
 function pauseTimer() {
 
     clearInterval(timer);
 
+    isRunning = false;
+
+    document.getElementById("timer-select").disabled = false;
+
+    const startBtn = document.getElementById("startBtn");
+
+    startBtn.textContent = "▶ 再開";
+
+    startBtn.disabled = false;
+
 }
+
+// ===========================
+// リセット
+// ===========================
 
 function resetTimer() {
 
     clearInterval(timer);
 
+    isRunning = false;
+
     const minutes = Number(document.getElementById("timer-select").value);
 
     remainingSeconds = minutes * 60;
+
+    document.getElementById("timer-select").disabled = false;
+
+    const startBtn = document.getElementById("startBtn");
+
+    startBtn.textContent = "▶ スタート";
+
+    startBtn.disabled = false;
 
     updateDisplay();
 
 }
 
+// ===========================
+// 時間変更
+// ===========================
+
 document.getElementById("timer-select").addEventListener("change", function () {
 
+    if (isRunning) return;
+
     remainingSeconds = Number(this.value) * 60;
+
     updateDisplay();
 
 });
 
-updateDisplay();
+// ===========================
+// ボタン
+// ===========================
 
 document.getElementById("startBtn").addEventListener("click", startTimer);
+
 document.getElementById("pauseBtn").addEventListener("click", pauseTimer);
+
 document.getElementById("resetBtn").addEventListener("click", resetTimer);
 
-function closeFinish(){
+// ===========================
+// 完了ポップアップ
+// ===========================
+
+function closeFinish() {
 
     document.getElementById("timer-finish").style.display = "none";
 
     resetTimer();
 
 }
+
+// ===========================
+// 初期表示
+// ===========================
+
+updateDisplay();
