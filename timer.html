@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>レジンタイマー | Artlandy</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="timer.css">
 </head>
 
 <body>
@@ -19,55 +21,57 @@
 
 </header>
 
-<main class="calculator">
+<main class="timer-page">
 
-<section class="tool-card">
+    <section class="tool-card">
 
-<h2>時間を選択</h2>
+        <h2>時間を選択</h2>
 
-<select id="timer-select">
+        <select id="timer-select">
+            <option value="30">30分</option>
+            <option value="60">60分</option>
+            <option value="80">80分</option>
+        </select>
 
-<option value="30">30分</option>
-<option value="60">60分</option>
-<option value="80">80分</option>
+    </section>
 
-</select>
+    <section class="result-card">
 
-</section>
+        <div id="timer-display">
+            30:00
+        </div>
 
-<section class="result-card">
+    </section>
 
-<div id="timer-display">
+    <section class="timer-buttons">
 
-30:00
+        <button id="startBtn" class="btn start">
+            ▶ スタート
+        </button>
 
-</div>
+        <div class="button-row">
 
-</section>
+            <button id="pauseBtn" class="btn pause">
+                ⏸ 一時停止
+            </button>
 
-<button id="startBtn" class="btn start">
-    ▶ スタート
-</button>
+            <button id="resetBtn" class="btn reset">
+                🔄 リセット
+            </button>
 
-<div class="button-row">
-    <button id="pauseBtn" class="btn pause">
-        ⏸ 一時停止
-    </button>
+        </div>
 
-    <button id="resetBtn" class="btn reset">
-        🔄 リセット
-    </button>
-</div>
+    </section>
+
+</main>
 
 <div id="timer-finish" class="timer-finish">
 
     <div class="timer-finish-card">
 
         <div class="finish-logo">
-
-    <img src="images/logo.png" alt="Artlandy Logo">
-
-</div>
+            <img src="images/logo.png" alt="Artlandy Logo">
+        </div>
 
         <h2>レジンの時間です！</h2>
 
@@ -78,8 +82,6 @@
     </div>
 
 </div>
-
-</main>
 
 <script src="timer.js"></script>
 
