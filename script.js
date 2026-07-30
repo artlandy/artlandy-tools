@@ -84,72 +84,97 @@ function calculateMix() {
 
     const total = Number(document.getElementById("total-resin").value);
 
-    const method = document.getElementById("method").value;
+    if (!total || total <= 0) {
+        alert("必要レジン量を入力してください。");
+        return;
+    }
 
+    const method = document.getElementById("method").value;
     const resin = document.getElementById("resin-type").value;
 
     const density = {
-
-    "Art Resin": 1.10,
-    "FLAWLESS RESIN": 1.10,
-    "Just Resin": 1.10,
-    "その他": 1.10
-
-};
-
-const totalWeight = total * density[resin];
+        "Art Resin": 1.10,
+        "FLAWLESS RESIN": 1.10,
+        "Just Resin": 1.10,
+        "その他": 1.10
+    };
 
     let main;
     let hardener;
     let unit;
 
-
     if (method === "体積比") {
 
-
-        main = total / 2;
-        hardener = total / 2;
         unit = "ml";
 
+        let mainRatio = 1;
+        let hardenerRatio = 1;
+
+        if (resin === "その他") {
+
+            const ratio = document.getElementById("ratio").value;
+
+            if (ratio === "1:2") {
+                mainRatio = 1;
+                hardenerRatio = 2;
+            } else if (ratio === "1:3") {
+                mainRatio = 1;
+                hardenerRatio = 3;
+            }
+
+        }
+
+        const totalRatio = mainRatio + hardenerRatio;
+
+        main = total * (mainRatio / totalRatio);
+        hardener = total * (hardenerRatio / totalRatio);
 
     } else {
 
-
         unit = "g";
 
+        const totalWeight = total * density[resin];
+
+        let mainRatio;
+        let hardenerRatio;
 
         if (resin === "Art Resin") {
 
-    main = totalWeight * (100 / 184);
-    hardener = totalWeight * (84 / 184);
+            mainRatio = 100;
+            hardenerRatio = 84;
 
-} else if (resin === "FLAWLESS RESIN") {
+        } else if (resin === "FLAWLESS RESIN") {
 
-    main = totalWeight * (10 / 19);
-    hardener = totalWeight * (9 / 19);
+            mainRatio = 10;
+            hardenerRatio = 9;
 
-} else if (resin === "Just Resin") {
+        } else if (resin === "Just Resin") {
 
-    main = totalWeight * (1.18 / 2.18);
-    hardener = totalWeight * (1 / 2.18);
+            mainRatio = 1.18;
+            hardenerRatio = 1;
 
-} else if (resin === "その他") {
+        } else {
 
-    main = totalWeight / 2;
-    hardener = totalWeight / 2;
+            mainRatio = Number(document.getElementById("main-ratio").value);
+            hardenerRatio = Number(document.getElementById("hardener-ratio").value);
 
-}
+            if (!mainRatio || !hardenerRatio) {
+                alert("配合比を入力してください。");
+                return;
+            }
 
+        }
+
+        const totalRatio = mainRatio + hardenerRatio;
+
+        main = totalWeight * (mainRatio / totalRatio);
+        hardener = totalWeight * (hardenerRatio / totalRatio);
 
     }
 
-
-
     document.getElementById("mix-result").innerHTML =
-
         "主剤：" + main.toFixed(1) + " " + unit + "<br>" +
         "硬化剤：" + hardener.toFixed(1) + " " + unit;
-
 
 }
 
