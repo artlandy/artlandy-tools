@@ -761,3 +761,31 @@ footer p {
     text-decoration:none;
 
 }
+
+#custom-ratio{
+    text-align: left;
+}
+
+#custom-ratio label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#custom-ratio input{
+    width: 100%;
+}
+
+.input-unit input,
+#custom-ratio input{
+
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    box-sizing:border-box;
+    background:#fff;
+
+}
