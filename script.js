@@ -166,68 +166,49 @@ function updateRatio() {
 
     const method = document.getElementById("method").value;
     const resin = document.getElementById("resin-type").value;
-    const ratio = document.getElementById("ratio").value;
 
+    const ratio = document.getElementById("ratio");
+    const customRatio = document.getElementById("custom-ratio");
+
+    // 一旦隠す
+    customRatio.style.display = "none";
+    ratio.style.display = "block";
 
     if (method === "体積比") {
 
-    unit = "ml";
+        if (resin === "その他") {
 
-    if (ratio === "1:1") {
-
-        main = total / 2;
-        hardener = total / 2;
-
-    } else if (ratio === "1:2") {
-
-        main = total / 3;
-        hardener = total * 2 / 3;
-
-    } else if (ratio === "1:3") {
-
-        main = total / 4;
-        hardener = total * 3 / 4;
-
-    }
-
-}
-
-    if (resin === "その他") {
-
-        document.getElementById("ratio").innerHTML = `
-            <option>1:1</option>
-            <option>1:2</option>
-            <option>1:3</option>
-        `;
-
-    } else {
-
-        document.getElementById("ratio").innerHTML = "<option>1:1</option>";
-
-    }
-
-    return;
-
-}
-
-
-    if (method === "重量比") {
-
-        if (resin === "Art Resin") {
-
-           document.getElementById("ratio").innerHTML = "<option>100:84</option>";
-
-        } else if (resin === "FLAWLESS RESIN") {
-
-            document.getElementById("ratio").innerHTML = "<option>10:9</option>";
-
-        } else if (resin === "Just Resin") {
-
-            document.getElementById("ratio").innerHTML = "<option>1.18:1</option>";
+            ratio.innerHTML = `
+                <option>1:1</option>
+                <option>1:2</option>
+                <option>1:3</option>
+            `;
 
         } else {
 
-            document.getElementById("ratio").innerHTML = "<option>1:1</option>";
+            ratio.innerHTML = "<option>1:1</option>";
+
+        }
+
+    } else {
+
+        if (resin === "Art Resin") {
+
+            ratio.innerHTML = "<option>100:84</option>";
+
+        } else if (resin === "FLAWLESS RESIN") {
+
+            ratio.innerHTML = "<option>10:9</option>";
+
+        } else if (resin === "Just Resin") {
+
+            ratio.innerHTML = "<option>1.18:1</option>";
+
+        } else if (resin === "その他") {
+
+            // その他の重量比だけ自由入力
+            ratio.style.display = "none";
+            customRatio.style.display = "block";
 
         }
 
@@ -239,3 +220,5 @@ function updateRatio() {
 resinType.addEventListener("change", updateRatio);
 
 methodSelect.addEventListener("change", updateRatio);
+
+updateRatio();
