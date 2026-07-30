@@ -26,7 +26,9 @@ if (size === "オリジナルサイズ") {
     const width = Number(document.getElementById("width").value);
     const height = Number(document.getElementById("height").value);
 
-    amount = width * height * 0.013;
+    const resinPerCm2 = 0.11;
+
+amount = width * height * resinPerCm2;
 
 
 } else {
@@ -121,26 +123,17 @@ const totalWeight = total * density[resin];
     main = totalWeight * (100 / 184);
     hardener = totalWeight * (84 / 184);
 
-}
+} else if (resin === "FLAWLESS RESIN") {
 
+    main = totalWeight * (10 / 19);
+    hardener = totalWeight * (9 / 19);
 
-        if (resin === "Art Resin") {
-
-    main = totalWeight * (100 / 184);
-    hardener = totalWeight * (84 / 184);
-
-}
-
-
-        if (resin === "Just Resin") {
+} else if (resin === "Just Resin") {
 
     main = totalWeight * (1.18 / 2.18);
     hardener = totalWeight * (1 / 2.18);
 
-}
-
-
-       if (resin === "その他") {
+} else if (resin === "その他") {
 
     main = totalWeight / 2;
     hardener = totalWeight / 2;
@@ -173,15 +166,49 @@ function updateRatio() {
 
     const method = document.getElementById("method").value;
     const resin = document.getElementById("resin-type").value;
+    const ratio = document.getElementById("ratio").value;
 
 
     if (method === "体積比") {
 
-        ratioSelect.innerHTML = "<option>1:1</option>";
+    unit = "ml";
 
-        return;
+    if (ratio === "1:1") {
+
+        main = total / 2;
+        hardener = total / 2;
+
+    } else if (ratio === "1:2") {
+
+        main = total / 3;
+        hardener = total * 2 / 3;
+
+    } else if (ratio === "1:3") {
+
+        main = total / 4;
+        hardener = total * 3 / 4;
 
     }
+
+}
+
+    if (resin === "その他") {
+
+        document.getElementById("ratio").innerHTML = `
+            <option>1:1</option>
+            <option>1:2</option>
+            <option>1:3</option>
+        `;
+
+    } else {
+
+        document.getElementById("ratio").innerHTML = "<option>1:1</option>";
+
+    }
+
+    return;
+
+}
 
 
     if (method === "重量比") {
