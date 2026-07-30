@@ -80,105 +80,135 @@ if (sizeSelect && customSize) {
 
 }
 
-function calculateMix() {
+function calculateMix(){
 
-    const total = Number(document.getElementById("total-resin").value);
+    const totalMl = Number(document.getElementById("total-resin").value);
 
-    if (!total || total <= 0) {
-        alert("必要レジン量を入力してください。");
+    if(!totalMl || totalMl <= 0){
+        alert("必要レジン量を入力してね");
         return;
     }
 
+
+    const resinType = document.getElementById("resin-type").value;
     const method = document.getElementById("method").value;
-    const resin = document.getElementById("resin-type").value;
 
-    const density = {
-        "Art Resin": 1.10,
-        "FLAWLESS RESIN": 1.10,
-        "Just Resin": 1.10,
-        "その他": 1.10
-    };
 
-    let main;
-    let hardener;
-    let unit;
+    let mainRatio = 1;
+    let hardenerRatio = 1;
 
-    if (method === "体積比") {
 
-        unit = "ml";
+    // 配合比を取得
+    if(method === "体積比"){
 
-        let mainRatio = 1;
-        let hardenerRatio = 1;
+    const ratioValue = document.getElementById("ratio").value;
 
-        if (resin === "その他") {
-
-            const ratio = document.getElementById("ratio").value;
-
-            if (ratio === "1:2") {
-                mainRatio = 1;
-                hardenerRatio = 2;
-            } else if (ratio === "1:3") {
-                mainRatio = 1;
-                hardenerRatio = 3;
-            }
-
-        }
-
-        const totalRatio = mainRatio + hardenerRatio;
-
-        main = total * (mainRatio / totalRatio);
-        hardener = total * (hardenerRatio / totalRatio);
-
-    } else {
-
-        unit = "g";
-
-        const totalWeight = total * density[resin];
-
-        let mainRatio;
-        let hardenerRatio;
-
-        if (resin === "Art Resin") {
-
-            mainRatio = 100;
-            hardenerRatio = 84;
-
-        } else if (resin === "FLAWLESS RESIN") {
-
-            mainRatio = 10;
-            hardenerRatio = 9;
-
-        } else if (resin === "Just Resin") {
-
-            mainRatio = 1.18;
-            hardenerRatio = 1;
-
-        } else {
-
-            mainRatio = Number(document.getElementById("main-ratio").value);
-            hardenerRatio = Number(document.getElementById("hardener-ratio").value);
-
-            if (!mainRatio || !hardenerRatio) {
-                alert("配合比を入力してください。");
-                return;
-            }
-
-        }
-
-        const totalRatio = mainRatio + hardenerRatio;
-
-        main = totalWeight * (mainRatio / totalRatio);
-        hardener = totalWeight * (hardenerRatio / totalRatio);
-
+    if(ratioValue === "1:1"){
+        mainRatio = 1;
+        hardenerRatio = 1;
     }
 
-    document.getElementById("mix-result").innerHTML =
-        "主剤：" + main.toFixed(1) + " " + unit + "<br>" +
-        "硬化剤：" + hardener.toFixed(1) + " " + unit;
+    else if(ratioValue === "1:2"){
+        mainRatio = 1;
+        hardenerRatio = 2;
+    }
+
+    else if(ratioValue === "1:3"){
+        mainRatio = 1;
+        hardenerRatio = 3;
+    }
+
+    else if(resinType === "その他"){
+
+        mainRatio = Number(document.getElementById("main-ratio").value);
+        hardenerRatio = Number(document.getElementById("hardener-ratio").value);
+
+    }
 
 }
 
 
+    // 重量比
+    if(method === "重量比"){
+
+        if(resinType === "Art Resin"){
+
+            mainRatio = 100;
+            hardenerRatio = 84;
+
+        }else if(resinType === "FLAWLESS RESIN"){
+
+            mainRatio = 10;
+            hardenerRatio = 9;
+
+        }else if(resinType === "Just Resin"){
+
+            mainRatio = 1.18;
+            hardenerRatio = 1;
+
+        }else{
+
+            mainRatio = Number(document.getElementById("main-ratio").value);
+            hardenerRatio = Number(document.getElementById("hardener-ratio").value);
+
+        }
+
+    }
+
+
+
+    let result = "";
+
+
+
+    // 体積比の場合
+    if(method === "体積比"){
+
+        const totalRatio = mainRatio + hardenerRatio;
+
+        const mainMl = totalMl * (mainRatio / totalRatio);
+        const hardenerMl = totalMl * (hardenerRatio / totalRatio);
+
+
+        result = `
+        主剤：約${mainMl.toFixed(1)}ml<br>
+        硬化剤：約${hardenerMl.toFixed(1)}ml<br>
+        合計：約${totalMl.toFixed(1)}ml
+        `;
+
+    }
+
+
+
+    // 重量比の場合
+    if(method === "重量比"){
+
+        const density = 1.10;
+
+        const totalGram = totalMl * density;
+
+        const totalRatio = mainRatio + hardenerRatio;
+
+
+        const mainGram = totalGram * (mainRatio / totalRatio);
+
+        const hardenerGram = totalGram * (hardenerRatio / totalRatio);
+
+
+
+        result = `
+        主剤：約${mainGram.toFixed(1)}g<br>
+        硬化剤：約${hardenerGram.toFixed(1)}g<br>
+        合計：約${totalGram.toFixed(1)}g
+        `;
+
+    }
+
+
+
+    document.getElementById("mix-result").innerHTML = result;
+
+}
     
 // 配合比表示の切り替え
 
