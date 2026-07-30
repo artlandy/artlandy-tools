@@ -798,3 +798,17 @@ footer p {
     background:#fff;
 
 }
+
+.size-input{
+    display:flex;
+    gap:10px;
+}
+
+.size-input input{
+    flex:1;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:16px;
+    box-sizing:border-box;
+}
